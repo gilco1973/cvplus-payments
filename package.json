@@ -16,6 +16,11 @@
       "require": "./dist/backend/index.js",
       "types": "./dist/backend/index.d.ts"
     },
+    "./backend/functions": {
+      "import": "./dist/backend/functions/index.esm.js",
+      "require": "./dist/backend/functions/index.js",
+      "types": "./dist/backend/functions/index.d.ts"
+    },
     "./frontend": {
       "import": "./dist/frontend/index.esm.js",
       "require": "./dist/frontend/index.js",
@@ -44,6 +49,7 @@
   ],
   "scripts": {
     "build": "npm run clean && npm run build:types && npm run build:rollup",
+    "build:secure": "./scripts/build/secure-build.sh",
     "build:types": "tsc --project tsconfig.build.json",
     "build:rollup": "rollup -c",
     "build:watch": "npm run build:types -- --watch",
@@ -54,17 +60,25 @@
     "type-check": "tsc --noEmit",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "test-payment-providers": "./scripts/test/test-payment-providers.sh",
+    "validate-security": "./scripts/test/validate-security.sh",
+    "process-webhooks": "echo 'Processing webhook test events...' && npm run test -- --testPathPattern='webhook'",
+    "audit-security": "npm audit && ./scripts/test/validate-security.sh",
+    "check-pci-compliance": "./scripts/test/validate-security.sh | grep -i 'pci'",
+    "deploy:staging": "./scripts/deployment/secure-deploy.sh staging",
+    "deploy:production": "./scripts/deployment/secure-deploy.sh production",
+    "health-check": "echo 'Running payment provider health checks...' && ./scripts/test/test-payment-providers.sh",
+    "validate-dependencies": "./scripts/validate-dependencies.sh"
   },
   "dependencies": {
-    "@cvplus/core": "workspace:*",
-    "@cvplus/auth": "workspace:*",
+    "@cvplus/core": "file:../core",
+    "@cvplus/auth": "file:../auth",
     "stripe": "^17.3.1",
     "@paypal/checkout-server-sdk": "^1.0.3",
     "@paypal/payouts-sdk": "^1.1.1",
     "firebase-functions": "^6.1.1",
     "firebase-admin": "^12.7.0",
-    "calendly-sdk": "^1.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "@types/node": "^22.9.1",

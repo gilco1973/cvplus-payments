@@ -1,1 +1,1 @@
-{"version":3,"file":"checkFeatureAccess.d.ts","sourceRoot":"","sources":["checkFeatureAccess.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAmCH,eAAO,MAAM,kBAAkB,KA+I9B,CAAC"}
+{"version":3,"file":"checkFeatureAccess.d.ts","sourceRoot":"","sources":["checkFeatureAccess.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAQH,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,wDAAwD,CAAC;AAG7F,UAAU,sBAAsB;IAC9B,OAAO,EAAE,cAAc,CAAC;IACxB,OAAO,CAAC,EAAE;QACR,MAAM,CAAC,EAAE,MAAM,CAAC;QAChB,kBAAkB,CAAC,EAAE,MAAM,CAAC;QAC5B,MAAM,CAAC,EAAE,MAAM,CAAC;KACjB,CAAC;CACH;AAiBD,eAAO,MAAM,kBAAkB,8FA+I9B,CAAC"}

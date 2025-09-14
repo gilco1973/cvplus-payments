@@ -1,2 +1,8 @@
-export declare const confirmPayment: any;
+interface ConfirmPaymentData {
+    paymentIntentId: string;
+    userId: string;
+    googleId: string;
+}
+export declare const confirmPayment: import("firebase-functions/v2/https").CallableFunction<ConfirmPaymentData, any, unknown>;
+export {};
 //# sourceMappingURL=confirmPayment.d.ts.map

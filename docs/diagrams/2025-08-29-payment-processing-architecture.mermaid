@@ -1,0 +1,113 @@
+graph TB
+    %% Payment Processing Architecture - CVPlus Payments Submodule
+    %% Author: Gil Klainert
+    %% Date: 2025-08-29
+
+    subgraph "Frontend Layer"
+        PF[Payment Forms]
+        PC[Payment Components]
+        PH[Payment Hooks]
+        PS[Payment State Management]
+    end
+
+    subgraph "Payment Orchestration Layer"
+        PO[Payment Orchestrator]
+        PR[Provider Router]
+        PV[Payment Validator]
+        PS_SERVICE[Payment Security Service]
+    end
+
+    subgraph "Payment Providers"
+        STRIPE[Stripe API]
+        PAYPAL[PayPal API]
+        WEBHOOK_S[Stripe Webhooks]
+        WEBHOOK_P[PayPal Webhooks]
+    end
+
+    subgraph "Firebase Functions"
+        CREATE_PI[createPaymentIntent]
+        CREATE_CS[createCheckoutSession]
+        CONFIRM_P[confirmPayment]
+        HANDLE_WH[handleWebhooks]
+        BOOK_MEET[bookMeeting]
+        GET_SUB[getUserSubscription]
+    end
+
+    subgraph "Security Layer"
+        TOKEN[Tokenization Service]
+        ENCRYPT[Encryption Service]
+        AUDIT[Audit Logger]
+        PCI[PCI Compliance Validator]
+    end
+
+    subgraph "Data Layer"
+        FIRESTORE[(Firebase Firestore)]
+        METADATA[Payment Metadata]
+        AUDIT_LOG[Audit Logs]
+        USER_DATA[User Payment Data]
+    end
+
+    %% Frontend to Orchestration
+    PF --> PO
+    PC --> PO
+    PH --> PO
+    PS --> PO
+
+    %% Orchestration to Functions
+    PO --> CREATE_PI
+    PO --> CREATE_CS
+    PO --> CONFIRM_P
+    PO --> BOOK_MEET
+
+    %% Provider Integration
+    CREATE_PI --> PR
+    CREATE_CS --> PR
+    CONFIRM_P --> PR
+    PR --> STRIPE
+    PR --> PAYPAL
+
+    %% Webhook Processing
+    WEBHOOK_S --> HANDLE_WH
+    WEBHOOK_P --> HANDLE_WH
+    HANDLE_WH --> AUDIT
+
+    %% Security Integration
+    PO --> PS_SERVICE
+    CREATE_PI --> TOKEN
+    CREATE_CS --> TOKEN
+    CONFIRM_P --> ENCRYPT
+    HANDLE_WH --> PCI
+
+    %% Data Storage
+    TOKEN --> FIRESTORE
+    ENCRYPT --> FIRESTORE
+    AUDIT --> AUDIT_LOG
+    CREATE_PI --> METADATA
+    CREATE_CS --> METADATA
+    GET_SUB --> USER_DATA
+
+    %% Security Flows
+    TOKEN --> AUDIT
+    ENCRYPT --> AUDIT
+    PS_SERVICE --> AUDIT
+    PCI --> AUDIT
+
+    %% Validation Layer
+    PO --> PV
+    PV --> PS_SERVICE
+    PV --> PCI
+
+    %% Colors for clarity
+    classDef frontend fill:#e1f5fe
+    classDef orchestration fill:#f3e5f5
+    classDef provider fill:#fff3e0
+    classDef functions fill:#e8f5e8
+    classDef security fill:#ffebee
+    classDef data fill:#fafafa
+
+    class PF,PC,PH,PS frontend
+    class PO,PR,PV,PS_SERVICE orchestration
+    class STRIPE,PAYPAL,WEBHOOK_S,WEBHOOK_P provider
+    class CREATE_PI,CREATE_CS,CONFIRM_P,HANDLE_WH,BOOK_MEET,GET_SUB functions
+    class TOKEN,ENCRYPT,AUDIT,PCI security
+    class FIRESTORE,METADATA,AUDIT_LOG,USER_DATA data

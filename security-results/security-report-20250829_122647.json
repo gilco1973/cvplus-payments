@@ -1,0 +1,38 @@
+{
+  "timestamp": "2025-08-29T17:26:48Z",
+  "securitySuite": "CVPlus Payments Security Validation",
+  "overallStatus": "FAIL",
+  "results": {
+    "sourceCodeScan": {
+      "secretViolations": 1,
+      "status": "FAIL"
+    },
+    "dependencySecurity": {
+      "criticalVulnerabilities": ,
+      "highVulnerabilities": ,
+      "status": "FAIL"
+    },
+    "apiSecurity": {
+      "errorHandlingIssues": 0,
+      "status": "PASS"
+    },
+    "dataSecurityhash": {
+      "encryptionStatus": "WARN",
+      "storageStatus": ""
+    },
+    "transportSecurity": {
+      "httpsStatus": "PASS",
+      "headersStatus": "WARN"
+    },
+    "pciCompliance": {
+      "score": "9/12",
+      "percentage": "75%",
+      "status": "FAIL"
+    }
+  },
+  "summary": {
+    "securityIssues": 1,
+    "securityWarnings": 0,
+    "pciCompliance": "75%"
+  }
+}
