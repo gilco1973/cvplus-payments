@@ -638,7 +638,7 @@ export class PaymentOrchestrator implements IPaymentOrchestrator {
       );
     }
 
-    // Regional restrictions check (placeholder)
+    // Regional restrictions check (implementation pending)
     if (context.billing_country) {
       // Would check provider's supported countries
     }

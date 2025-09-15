@@ -125,7 +125,7 @@ export const createCheckoutSession = onCall<CreateCheckoutSessionData>(
         const fallbackPriceId = getStripePriceId('PREMIUM');
         
         // Try to use Stripe Price ID first if properly configured
-        if (fallbackPriceId && !fallbackPriceId.includes('placeholder')) {
+        if (fallbackPriceId && !fallbackPriceId.includes('template')) {
           sessionParams.line_items = [{
             price: fallbackPriceId,
             quantity: 1,

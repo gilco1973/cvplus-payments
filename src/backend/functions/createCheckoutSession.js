@@ -95,7 +95,7 @@ exports.createCheckoutSession = (0, https_1.onCall)({
             const premiumConfig = (0, pricing_1.getTierConfig)('PREMIUM');
             const fallbackPriceId = (0, pricing_1.getStripePriceId)('PREMIUM');
             // Try to use Stripe Price ID first if properly configured
-            if (fallbackPriceId && !fallbackPriceId.includes('placeholder')) {
+            if (fallbackPriceId && !fallbackPriceId.includes('template')) {
                 sessionParams.line_items = [{
                         price: fallbackPriceId,
                         quantity: 1,

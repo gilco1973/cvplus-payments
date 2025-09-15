@@ -21,7 +21,7 @@ export const usePayment = (): UsePaymentReturn => {
 
     try {
       // This would make an API call to create payment intent
-      const mockPaymentIntent: PaymentIntent = {
+      const testPaymentIntent: PaymentIntent = {
         id: `pi_${Date.now()}`,
         amount,
         currency,
@@ -29,11 +29,11 @@ export const usePayment = (): UsePaymentReturn => {
         clientSecret: `pi_${Date.now()}_secret_test`,
       };
 
-      setPaymentIntent(mockPaymentIntent);
-      
+      setPaymentIntent(testPaymentIntent);
+
       return {
         success: true,
-        paymentIntent: mockPaymentIntent,
+        paymentIntent: testPaymentIntent,
       };
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Payment creation failed';
