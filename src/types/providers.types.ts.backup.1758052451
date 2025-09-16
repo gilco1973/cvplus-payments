@@ -1,7 +1,7 @@
 /**
  * CVPlus Payment Provider Abstraction Types
  * Interface contracts for payment provider implementations
-  */
+ */
 
 import {
   PaymentProviderName,
@@ -17,6 +17,8 @@ import {
   PaymentSessionRequest,
   PaymentSession,
   CustomerInfo,
+  PaymentMethodInfo,
+  PaymentConfiguration,
   PaymentMethodDetails,
 } from './payments.types';
 

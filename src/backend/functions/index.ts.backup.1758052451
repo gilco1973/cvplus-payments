@@ -1,7 +1,7 @@
 /**
  * Firebase Cloud Functions for payment processing
  * CVPlus Payments Module - Core payment processing functions only
-  */
+ */
 
 // Payment processing functions
 export { createCheckoutSession } from './createCheckoutSession';

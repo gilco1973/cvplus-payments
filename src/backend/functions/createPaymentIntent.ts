@@ -1,17 +1,23 @@
-// @ts-ignore - Export conflictsimport { onCall, HttpsError } from 'firebase-functions/v2/https';
-import { logger } from 'firebase-functions';
-import { db } from '../../../../../functions/src/config/firebase';
-import { 
-  getPriceInCents, 
-  getTierConfig, 
+import { onCall, HttpsError } from 'firebase-functions/v2/https';
+import { logger, db } from '@cvplus/core';
+
+// Local CORS configuration
+const corsConfig = {
+  origin: ['http://localhost:3000', 'https://cvplus.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
+import {
+  getPriceInCents,
+  logPricingStatus,
   validatePricingConfig,
-  logPricingStatus
-} from '../../../../../functions/src/config/pricing';
-import { corsOptions } from '../../../../../functions/src/config/cors';
+  getTierConfig
+} from '../config/pricing';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-06-20',
+  apiVersion: '2024-06-20' as any,
 });
 
 interface CreatePaymentIntentData {
@@ -23,7 +29,7 @@ interface CreatePaymentIntentData {
 
 export const createPaymentIntent = onCall<CreatePaymentIntentData>(
   {
-    ...corsOptions,
+    ...corsConfig,
     secrets: ['STRIPE_SECRET_KEY', 'STRIPE_PUBLISHABLE_KEY']
   },
   async (request) => {
@@ -53,7 +59,7 @@ export const createPaymentIntent = onCall<CreatePaymentIntentData>(
     const { userId, email, googleId, amount = defaultAmount } = data;
     
     // Log pricing configuration status
-    logPricingStatus();
+    logPricingStatus('PREMIUM');
     
     logger.info('Creating payment intent with pricing', {
       providedAmount: data.amount,

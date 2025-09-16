@@ -1,6 +1,6 @@
-// @ts-ignore - Export conflicts// Stripe-specific types
+// Stripe-specific types
 
-export interface StripeConfig {
+export interface StripeBasicConfig {
   secretKey: string;
   publishableKey: string;
   webhookSecret: string;

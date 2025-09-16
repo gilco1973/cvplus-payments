@@ -1,11 +1,9 @@
-// @ts-ignore - Export conflictsimport { onRequest } from 'firebase-functions/v2/https';
-import { logger } from 'firebase-functions';
-import { db } from '../../../../../functions/src/config/firebase';
+import { onRequest } from 'firebase-functions/v2/https';
+import { logger, db, Timestamp } from '@cvplus/core';
 import Stripe from 'stripe';
-import { Timestamp } from 'firebase-admin/firestore';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-06-20',
+  apiVersion: '2024-06-20' as any,
 });
 
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET!;

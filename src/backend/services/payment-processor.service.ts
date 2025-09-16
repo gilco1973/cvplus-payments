@@ -17,7 +17,7 @@ export class PaymentProcessorService {
     }
   }
 
-  async validatePayment(paymentIntentId: string): Promise<boolean> {
+  async validatePayment(_paymentIntentId: string): Promise<boolean> {
     // Validation logic would go here
     return true;
   }

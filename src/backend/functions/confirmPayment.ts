@@ -1,12 +1,18 @@
-// @ts-ignore - Export conflictsimport { onCall, HttpsError } from 'firebase-functions/v2/https';
-import { logger } from 'firebase-functions';
-import { db } from '../../../../../functions/src/config/firebase';
-import { corsOptions } from '../../../../../functions/src/config/cors';
+import { onCall, HttpsError } from 'firebase-functions/v2/https';
+import { logger, db } from '@cvplus/core';
+
+// Local CORS configuration
+const corsConfig = {
+  origin: ['http://localhost:3000', 'https://cvplus.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
 import Stripe from 'stripe';
-import { Timestamp } from 'firebase-admin/firestore';
+import { Timestamp } from '@cvplus/core';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-06-20',
+  apiVersion: '2024-06-20' as any,
 });
 
 interface ConfirmPaymentData {
@@ -17,7 +23,7 @@ interface ConfirmPaymentData {
 
 export const confirmPayment = onCall<ConfirmPaymentData>(
   {
-    ...corsOptions,
+    ...corsConfig,
     secrets: ['STRIPE_SECRET_KEY', 'STRIPE_PUBLISHABLE_KEY']
   },
   async (request) => {

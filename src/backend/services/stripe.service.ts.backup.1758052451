@@ -1,6 +1,6 @@
 /**
  * Stripe service implementation
-  */
+ */
 import Stripe from 'stripe';
 
 export class StripeService {

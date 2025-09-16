@@ -1,6 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
+import json from '@rollup/plugin-json';
 import { createRequire } from 'module';
 
 const require = createRequire(import.meta.url);
@@ -27,6 +28,7 @@ export default {
       browser: false,
     }),
     commonjs(),
+    json(),
     typescript({
       tsconfig: './tsconfig.build.json',
       declaration: true,

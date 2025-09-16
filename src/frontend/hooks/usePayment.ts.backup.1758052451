@@ -1,6 +1,8 @@
-// @ts-ignore - Export conflicts// Payment hook for React components
+/**
+ * Payment hook for React components
+ */
 import { useState, useCallback } from 'react';
-import { PaymentIntent, PaymentResult } from '../../types/payment.types';
+import { PaymentIntent, PaymentResult } from '../../types/payments.types';
 
 export interface UsePaymentReturn {
   createPayment: (amount: number, currency?: string) => Promise<PaymentResult>;

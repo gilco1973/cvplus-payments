@@ -1,18 +1,24 @@
-// @ts-ignore - Export conflictsimport { onCall, HttpsError } from 'firebase-functions/v2/https';
-import { logger } from 'firebase-functions';
-import { db } from '../../../../../functions/src/config/firebase';
-import { 
-  getPriceInCents, 
-  getStripePriceId, 
-  getTierConfig, 
+import { onCall, HttpsError } from 'firebase-functions/v2/https';
+import { logger, db } from '@cvplus/core';
+
+// Local CORS configuration
+const corsConfig = {
+  origin: ['http://localhost:3000', 'https://cvplus.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+};
+import {
+  getPriceInCents,
+  getStripePriceId,
+  logPricingStatus,
   validatePricingConfig,
-  logPricingStatus
-} from '../../../../../functions/src/config/pricing';
-import { corsOptions } from '../../../../../functions/src/config/cors';
+  getTierConfig
+} from '../config/pricing';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-06-20',
+  apiVersion: '2024-06-20' as any,
 });
 
 interface CreateCheckoutSessionData {
@@ -25,7 +31,7 @@ interface CreateCheckoutSessionData {
 
 export const createCheckoutSession = onCall<CreateCheckoutSessionData>(
   {
-    ...corsOptions,
+    ...corsConfig,
     secrets: ['STRIPE_SECRET_KEY', 'STRIPE_PUBLISHABLE_KEY']
   },
   async (request) => {
@@ -162,7 +168,7 @@ export const createCheckoutSession = onCall<CreateCheckoutSessionData>(
       const session = await stripe.checkout.sessions.create(sessionParams);
 
       // Log pricing configuration status
-      logPricingStatus();
+      logPricingStatus('PREMIUM');
       
       // Log checkout session creation
       logger.info('Checkout session created', {
