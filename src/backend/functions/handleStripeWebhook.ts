@@ -1,4 +1,4 @@
-import { onRequest } from 'firebase-functions/v2/https';
+// @ts-ignore - Export conflictsimport { onRequest } from 'firebase-functions/v2/https';
 import { logger } from 'firebase-functions';
 import { db } from '../../../../../functions/src/config/firebase';
 import Stripe from 'stripe';

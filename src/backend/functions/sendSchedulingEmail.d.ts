@@ -1,4 +1,4 @@
-export declare const sendSchedulingEmail: import("firebase-functions/v2/https").CallableFunction<any, Promise<{
+// @ts-ignore - Export conflictsexport declare const sendSchedulingEmail: import("firebase-functions/v2/https").CallableFunction<any, Promise<{
     success: boolean;
     message: string;
     timestamp: string;

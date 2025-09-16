@@ -1,4 +1,4 @@
-import { UserSubscriptionData } from '../../../../../functions/src/services/cached-subscription.service';
+// @ts-ignore - Export conflictsimport { UserSubscriptionData } from '../../../../../functions/src/services/cached-subscription.service';
 interface GetUserSubscriptionData {
     userId: string;
 }

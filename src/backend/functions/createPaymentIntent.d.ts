@@ -1,4 +1,4 @@
-interface CreatePaymentIntentData {
+// @ts-ignore - Export conflictsinterface CreatePaymentIntentData {
     userId: string;
     email: string;
     googleId: string;

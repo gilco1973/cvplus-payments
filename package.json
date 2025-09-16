@@ -72,18 +72,19 @@
     "validate-dependencies": "./scripts/validate-dependencies.sh"
   },
   "dependencies": {
-    "@cvplus/core": "file:../core",
     "@cvplus/auth": "file:../auth",
-    "stripe": "^17.3.1",
+    "@cvplus/core": "file:../core",
+    "@cvplus/logging": "^1.0.0",
     "@paypal/checkout-server-sdk": "^1.0.3",
     "@paypal/payouts-sdk": "^1.1.1",
-    "firebase-functions": "^6.1.1",
-    "firebase-admin": "^12.7.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "@types/node": "^22.9.1",
     "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1"
+    "@types/react-dom": "^18.3.1",
+    "firebase-admin": "^12.7.0",
+    "firebase-functions": "^6.1.1",
+    "react": ">=18.0.0",
+    "react-dom": "^18.3.1",
+    "stripe": "^17.3.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.1",

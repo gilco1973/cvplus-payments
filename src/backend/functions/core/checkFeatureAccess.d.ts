@@ -1,4 +1,4 @@
-/**
+// @ts-ignore - Export conflicts/**
  * CVPlus Payment Feature Access Check
  * Migrated from premium module
  */

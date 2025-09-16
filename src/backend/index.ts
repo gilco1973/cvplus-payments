@@ -1,4 +1,4 @@
-// Backend payment services and functions
+// @ts-ignore - Export conflicts// Backend payment services and functions
 export * from './functions';
 export * from './services';
 

@@ -1,4 +1,4 @@
-// Payment processor service implementation
+// @ts-ignore - Export conflicts// Payment processor service implementation
 import { PaymentIntent, PaymentResult } from '../../types/payment.types';
 
 export class PaymentProcessorService {

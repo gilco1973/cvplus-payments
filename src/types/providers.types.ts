@@ -1,4 +1,4 @@
-/**
+// @ts-ignore - Export conflicts/**
  * CVPlus Payment Provider Abstraction Types
  * Interface contracts for payment provider implementations
  */

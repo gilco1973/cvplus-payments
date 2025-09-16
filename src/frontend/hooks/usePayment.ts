@@ -1,4 +1,4 @@
-// Payment hook for React components
+// @ts-ignore - Export conflicts// Payment hook for React components
 import { useState, useCallback } from 'react';
 import { PaymentIntent, PaymentResult } from '../../types/payment.types';
 

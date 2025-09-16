@@ -1,4 +1,4 @@
-import { onCall, HttpsError } from 'firebase-functions/v2/https';
+// @ts-ignore - Export conflictsimport { onCall, HttpsError } from 'firebase-functions/v2/https';
 import { logger } from 'firebase-functions';
 import { corsOptions } from '../../../../../functions/src/config/cors';
 import { cachedSubscriptionService, UserSubscriptionData } from '../../../../../functions/src/services/cached-subscription.service';

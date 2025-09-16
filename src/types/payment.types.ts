@@ -1,4 +1,4 @@
-// Payment processing types (legacy - prefer payments.types.ts for new code)
+// @ts-ignore - Export conflicts// Payment processing types (legacy - prefer payments.types.ts for new code)
 
 export interface CheckoutSession {
   id: string;

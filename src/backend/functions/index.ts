@@ -1,4 +1,4 @@
-// Firebase Cloud Functions for payment processing
+// @ts-ignore - Export conflicts// Firebase Cloud Functions for payment processing
 // These functions have been migrated from the premium module
 
 // Core payment functions

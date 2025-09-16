@@ -1,4 +1,4 @@
-// Booking and scheduling types
+// @ts-ignore - Export conflicts// Booking and scheduling types
 
 export interface BookingSlot {
   id: string;

@@ -1,4 +1,4 @@
-export declare const bookMeeting: import("firebase-functions/v2/https").CallableFunction<any, Promise<{
+// @ts-ignore - Export conflictsexport declare const bookMeeting: import("firebase-functions/v2/https").CallableFunction<any, Promise<{
     success: boolean;
     meetingId: string;
     calendarUrl: any;

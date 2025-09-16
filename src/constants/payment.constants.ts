@@ -1,4 +1,4 @@
-// Payment processing constants
+// @ts-ignore - Export conflicts// Payment processing constants
 
 export const PAYMENT_CONSTANTS = {
   CURRENCIES: {

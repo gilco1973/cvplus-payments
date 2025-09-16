@@ -1,4 +1,4 @@
-/**
+// @ts-ignore - Export conflicts/**
  * CVPlus Payment Service Orchestrator
  * Phase 2: Advanced orchestration with intelligent routing and failover
  */

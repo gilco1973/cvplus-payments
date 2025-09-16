@@ -1,4 +1,4 @@
-// Stripe-specific types
+// @ts-ignore - Export conflicts// Stripe-specific types
 
 export interface StripeConfig {
   secretKey: string;

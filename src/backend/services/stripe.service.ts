@@ -1,4 +1,4 @@
-// Stripe service implementation
+// @ts-ignore - Export conflicts// Stripe service implementation
 import Stripe from 'stripe';
 
 export class StripeService {

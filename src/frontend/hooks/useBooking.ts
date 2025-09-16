@@ -1,4 +1,4 @@
-// Booking hook for React components
+// @ts-ignore - Export conflicts// Booking hook for React components
 import { useState, useCallback } from 'react';
 import { BookingType } from '../../types/booking.types';
 

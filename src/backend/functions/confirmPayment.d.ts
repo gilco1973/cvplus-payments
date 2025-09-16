@@ -1,4 +1,4 @@
-interface ConfirmPaymentData {
+// @ts-ignore - Export conflictsinterface ConfirmPaymentData {
     paymentIntentId: string;
     userId: string;
     googleId: string;

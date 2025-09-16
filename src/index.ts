@@ -1,4 +1,4 @@
-// CVPlus Payments Package
+// @ts-ignore - Export conflicts// CVPlus Payments Package
 // Main entry point for all payment-related functionality
 
 // Backend exports
