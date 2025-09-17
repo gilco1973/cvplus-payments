@@ -74,7 +74,7 @@
   "dependencies": {
     "@cvplus/auth": "file:../auth",
     "@cvplus/core": "file:../core",
-    "@cvplus/logging": "^1.0.0",
+    "@cvplus/logging": "1.0.0",
     "@paypal/checkout-server-sdk": "^1.0.3",
     "@paypal/payouts-sdk": "^1.1.1",
     "@types/node": "^22.9.1",
